@@ -6,30 +6,42 @@
     <title>Based Loader - Better Quilt</title>
 
     <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script src="darkMode.js"></script>
 </head>
-<body>
-
+<body class="bg-light">
 <main>
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                <img width="40  " height="40" class="me-2" src="gofuckyourselfgdude.png" alt="logo"/>
-                <span class="fs-4">Based Loader</span>
-            </a>
+            <nav class="navbar navbar-light navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-dark" href="#">
+                        <img width="40" height="40" class="me-2" src="gofuckyourselfgdude.png" alt="logo"/>
+                        Based Loader
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
+                            <a class="nav-link text-dark" href="#">Download</a>
+                            <a class="nav-link text-dark" href="#" tabindex="-1" aria-disabled="true">Updates</a>
+                        </div>
+                    </div>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Download</a>
-                </li>
-            </ul>
+                    <div class="d-flex">
+                        <button id="moon" class="bi bi-moon-fill moon bg-light" onclick="darkMode()"></button>
+                        <button id="sun" hidden=hidden class="bi bi-brightness-high sun bg-dark" onclick="lightMode()"></button>
+                    </div>
+                </div>
+            </nav>
         </header>
 
         <div class="p-5 mb-4 bg-light rounded-3">
@@ -43,7 +55,7 @@
 
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
-                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <div class="h-100 p-5 bg-light border rounded-3">
                     <h2>Our work merging Forge & Fabric</h2>
                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
                         Then, mix and match with additional component themes and more.</p>
