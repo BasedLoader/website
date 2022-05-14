@@ -1,53 +1,65 @@
 function darkMode() {
-  document.querySelectorAll(".bg-light").forEach((element) => {
-    element.className = element.className.replace(/-light/g, "-dark");
-  });
+    document.querySelectorAll(".bg-light").forEach((element) => {
+        element.className = element.className.replace(/-light/g, "-dark");
+    });
 
-  document.querySelectorAll(".text-dark").forEach((element) => {
-    element.className = element.className.replace(/-dark/g, "-light");
-  });
+    document.querySelectorAll(".text-dark").forEach((element) => {
+        element.className = element.className.replace(/-dark/g, "-light");
+    });
 
-  document.body.classList.replace("bg-light", "bg-dark");
+    document.querySelectorAll(".btn-outline-dark").forEach((element) => {
+        element.className = element.className.replace("btn-outline-dark", "btn-outline-secondary");
+    });
 
-  if (document.body.classList.contains("text-dark")) {
-    document.body.classList.replace("text-dark", "text-light");
-  } else {
-    document.body.classList.add("text-light");
-  }
+    document.body.classList.replace("bg-light", "bg-dark");
 
-  document.getElementById("moon").hidden = true;
-  document.getElementById("sun").hidden = false;
+    if (document.body.classList.contains("text-dark")) {
+        document.body.classList.replace("text-dark", "text-light");
+    } else {
+        document.body.classList.add("text-light");
+    }
+
+    document.getElementById("moon").hidden = true;
+    document.getElementById("sun").hidden = false;
 }
 
 function lightMode() {
-  document.querySelectorAll(".bg-dark").forEach((element) => {
-    element.className = element.className.replace(/-dark/g, "-light");
-  });
+    document.querySelectorAll(".bg-dark").forEach((element) => {
+        element.className = element.className.replace(/-dark/g, "-light");
+    });
 
-  document.querySelectorAll(".text-light").forEach((element) => {
-    element.className = element.className.replace(/-light/g, "-dark");
-  });
+    document.querySelectorAll(".text-light").forEach((element) => {
+        element.className = element.className.replace(/-light/g, "-dark");
+    });
 
-  document.body.classList.replace("bg-dark", "bg-light");
+    document.querySelectorAll(".btn-outline-secondary").forEach((element) => {
+        element.className = element.className.replace("btn-outline-secondary", "btn-outline-dark");
+    });
 
-  if (document.body.classList.contains("text-light")) {
-    document.body.classList.replace("text-light", "text-dark");
-  } else {
-    document.body.classList.add("text-dark");
-  }
+    document.body.classList.replace("bg-dark", "bg-light");
 
-  document.getElementById("moon").hidden = false;
-  document.getElementById("sun").hidden = true;
+    if (document.body.classList.contains("text-light")) {
+        document.body.classList.replace("text-light", "text-dark");
+    } else {
+        document.body.classList.add("text-dark");
+    }
+
+    document.getElementById("moon").hidden = false;
+    document.getElementById("sun").hidden = true;
 }
 
 function getSystemDefaultTheme() {
-  const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-  if (darkThemeMq.matches) {
-    return "dark";
-  }
-  return "light";
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkThemeMq.matches) {
+        return "dark";
+    }
+    return "light";
 }
 
-if(getSystemDefaultTheme() === "dark") {
-  darkMode();
-}
+window.onload = function () {
+    if (getSystemDefaultTheme() === "dark") {
+        darkMode();
+    } else {
+        lightMode();
+    }
+};
