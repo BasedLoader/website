@@ -11,6 +11,10 @@ function darkMode() {
         element.className = element.className.replace("btn-outline-dark", "btn-outline-secondary");
     });
 
+    document.querySelectorAll(".btn-close").forEach((element) => {
+        element.className = element.className.replace("btn-close", "btn-close btn-close-white");
+    });
+
     document.body.classList.replace("bg-light", "bg-dark");
 
     if (document.body.classList.contains("text-dark")) {
@@ -34,6 +38,10 @@ function lightMode() {
 
     document.querySelectorAll(".btn-outline-secondary").forEach((element) => {
         element.className = element.className.replace("btn-outline-secondary", "btn-outline-dark");
+    });
+
+    document.querySelectorAll(".btn-close-white").forEach((element) => {
+        element.className = element.className.replace("btn-close-white", "");
     });
 
     document.body.classList.replace("bg-dark", "bg-light");

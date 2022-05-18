@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="Based Loader"/>
-    <meta property="og:description" content="What Quilt should've been. Stay mad gdude lol"/>
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/91259795?s=200&v=4"/>
-    <meta property="og:url" content="https://basedloader.com/updates"/>
+    <meta property="og:description" content="What the modding community deserves."/>
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/91259795"/>
+    <meta property="og:url" content="https://basedloader.com"/>
     <meta property="og:type" content="object"/>
-    <title>Based Loader - Better Quilt</title>
+    <title>Based Loader</title>
 
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="../style.css">
@@ -27,7 +27,7 @@
             <nav class="navbar navbar-light navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand text-dark" href="#">
-                        <img width="48" height="48" class="me-2" src="../fairuse.png" alt="logo"/>
+                        <img width="48" height="48" class="me-2" src="../logo.png" alt="logo"/>
                         Based Loader
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -55,16 +55,16 @@
         <div class="modal fade" id="news1" tabindex="-1" aria-labelledby="news1Title" style="display: none;"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-light">
                     <div class="modal-header">
                         <h5 class="modal-title" id="news1Title">Our work merging Forge & Fabric</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>This is some placeholder content to show the scrolling behavior for modals. Instead of
-                            repeating the text the modal, we use an inline style set a minimum height, thereby extending
-                            the length of the overall modal and demonstrating the overflow scrolling. When content
-                            becomes longer than the height of the viewport, scrolling will move the modal as needed.</p>
+                        <p>We have been working hard to remove the barrier between the two main competing mod loaders.
+                            Currently, support is very limited for some fabric mods due to mixin issues and Forge's mod
+                            class loading being broken, but is a big step in the direction towards one mod loader for all
+                            mods.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -74,10 +74,6 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#news1">
-            Launch test modal
-        </button>
-
         <div class="row align-items-md-stretch">
             <div class="col-md-12 pb-3">
                 <div class="h-100 p-5 bg-light border rounded-3">
@@ -86,15 +82,16 @@
                         Currently, support is very limited for some fabric mods due to mixin issues and Forge's mod
                         class loading being broken, but is a big step in the direction towards one mod loader for all
                         mods.</p>
-                    <button class="btn btn-outline-dark" type="button">Read More</button>
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#news1">Read
+                        More
+                    </button>
                 </div>
             </div>
             <div class="col-md-12 pb-3">
                 <div class="h-100 p-5 bg-light border rounded-3">
                     <h2>Plans to extend the api</h2>
-                    <p>Or, keep it light and add a border for some added definition to the boundaries of your content.
-                        Be sure to look under the hood at the source HTML here as we've adjusted the alignment and
-                        sizing of both column's content for equal-height.</p>
+                    <p>We plan to have an api with fabrics modern style combined with some upcoming features such as
+                        extended interface injection and to meet or exceed the scope of forges API.</p>
                     <button class="btn btn-outline-dark" type="button">Read More</button>
                 </div>
             </div>
