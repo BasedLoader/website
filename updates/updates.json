@@ -1,0 +1,4 @@
+[
+    {"title":"Our work merging Forge & Fabric","content":"<p>We have been working hard to remove the barrier between the two main competing mod loaders. Currently, support is very limited for some fabric mods due to mixin issues and Forge's mod class loading being broken, but is a big step in the direction towards one mod loader for all mods.</p>"},
+    {"title":"Plans to extend the api","content":"<p>We plan to have an api with fabrics modern style combined with some upcoming features such as\nextended interface injection and to meet or exceed the scope of forges API.</p>"}
+]
