@@ -1,56 +1,82 @@
+var currentTheme = "light";
+
 function darkMode() {
-    document.querySelectorAll(".bg-light").forEach((element) => {
-        element.className = element.className.replace(/-light/g, "-dark");
-    });
+    if (currentTheme != "dark") blacklist = [];
+    currentTheme = "dark";
+    docSearch("bg-light", "bg-dark");
+    docSearch("bg-dark", "bg-light");
 
-    document.querySelectorAll(".text-dark").forEach((element) => {
-        element.className = element.className.replace(/-dark/g, "-light");
-    });
+    docSearch("text-dark", "text-light");
+    docSearch("text-light", "text-dark");
 
-    document.querySelectorAll(".btn-outline-dark").forEach((element) => {
-        element.className = element.className.replace("btn-outline-dark", "btn-outline-secondary");
-    });
+    docSearch("btn-outline-dark", "btn-outline-secondary");
+    docSearch("btn-outline-secondary", "btn-outline-dark");
 
-    document.querySelectorAll(".btn-close").forEach((element) => {
-        element.className = element.className.replace("btn-close", "btn-close btn-close-white");
-    });
-
-    document.body.classList.replace("bg-light", "bg-dark");
-
-    if (document.body.classList.contains("text-dark")) {
-        document.body.classList.replace("text-dark", "text-light");
-    } else {
-        document.body.classList.add("text-light");
-    }
+    docSearch("btn-close", "btn-close btn-close-white");
+    docSearch("btn-close btn-close-white", "btn-close");
 
     document.getElementById("moon").hidden = true;
     document.getElementById("sun").hidden = false;
 }
 
-function lightMode() {
-    document.querySelectorAll(".bg-dark").forEach((element) => {
-        element.className = element.className.replace(/-dark/g, "-light");
+var blacklist = [];
+function docSearch(f, t) {
+    document.querySelectorAll("." + f).forEach((element) => {
+        replaceClassWith(element, f, t);
     });
-
-    document.querySelectorAll(".text-light").forEach((element) => {
-        element.className = element.className.replace(/-light/g, "-dark");
-    });
-
-    document.querySelectorAll(".btn-outline-secondary").forEach((element) => {
-        element.className = element.className.replace("btn-outline-secondary", "btn-outline-dark");
-    });
-
-    document.querySelectorAll(".btn-close-white").forEach((element) => {
-        element.className = element.className.replace("btn-close-white", "");
-    });
-
-    document.body.classList.replace("bg-dark", "bg-light");
-
-    if (document.body.classList.contains("text-light")) {
-        document.body.classList.replace("text-light", "text-dark");
-    } else {
-        document.body.classList.add("text-dark");
+}
+/**
+ * 
+ * @param {Element} e
+ * @param {string} f 
+ * @param {string} t 
+ * @type void
+ */
+function replaceClassWith(e, f, t) {
+    console.log("Executing for");
+    console.log(e);
+    //blacklist = {};
+    if (getBlacklistOf(e) != null) {
+        var d = false;
+        getBlacklistOf(e).forEach(a => {
+            if (a == f) {
+                console.log("Skipping " + f + " on " + e + " as it has been blacklisted.");
+                d = true;
+                return;
+            }
+        });
+        if (d) return;
     }
+    e.className = e.className.replaceAll(f, t);
+    if (blacklist[e] == null) {
+        blacklist.push([e, []]);
+        getBlacklistOf(e).push(t);
+    }
+}
+function getBlacklistOf(element) {
+    var d = null;
+    blacklist.forEach(a => {
+        if (a[0] === element && d == null) {
+            d = a[1];
+        }
+    });
+    return d;
+}
+
+function lightMode() {
+    if (currentTheme != "light") blacklist = [];
+    currentTheme = "light";
+    docSearch("bg-dark", "bg-light");
+    docSearch("bg-light", "bg-dark");
+
+    docSearch("text-light", "text-dark");
+    docSearch("text-dark", "text-light");
+
+    docSearch("btn-outline-secondary", "btn-outline-dark");
+    docSearch("btn-outline-dark", "btn-outline-secondary");
+
+    docSearch("btn-close btn-close-white", "btn-close");
+    docSearch("btn-close", "btn-close btn-close-white");
 
     document.getElementById("moon").hidden = false;
     document.getElementById("sun").hidden = true;
@@ -64,10 +90,11 @@ function getSystemDefaultTheme() {
     return "light";
 }
 
-window.onload = function () {
+function loadTheme() {
     if (getSystemDefaultTheme() === "dark") {
         darkMode();
     } else {
-        lightMode();
+        //lightMode(); already light mode
     }
-};
+}
+window.onload = loadTheme;

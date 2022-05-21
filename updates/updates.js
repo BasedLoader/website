@@ -30,6 +30,7 @@ async function initalize() {
     });
     cachedUpdates = updatesJSON;
     updates.innerHTML = update;
+    loadTheme();
 }
 
 function setNews(i) {
