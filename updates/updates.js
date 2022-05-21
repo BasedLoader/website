@@ -13,10 +13,10 @@ async function getUpdates() {
 initalize(); // U.S. spelling as per convention
 var cachedUpdates = null;
 async function initalize() {
-    const f = await getUpdates();
+    const updatesJSON = await getUpdates();
     var update = ``;
     var i = 0;
-    f.forEach(element => {
+    updatesJSON.forEach(element => {
         const title = element.title;
         const content = element.content;
         var toInsert = `<div class="col-md-12 pb-3"><div class="h-100 p-5 bg-light border rounded-3"><h2>`;
@@ -28,7 +28,7 @@ async function initalize() {
         update += toInsert;
         i++;
     });
-    cachedUpdates = f;
+    cachedUpdates = updatesJSON;
     updates.innerHTML = update;
 }
 
