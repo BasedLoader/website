@@ -1,6 +1,9 @@
 var currentTheme = "light";
 
 function darkMode() {
+    document.getElementById("moon").disabled = true;
+    document.getElementById("sun").disabled = true;
+
     if (currentTheme != "dark") blacklist = [];
     currentTheme = "dark";
     docSearch("bg-light", "bg-dark");
@@ -17,6 +20,8 @@ function darkMode() {
 
     document.getElementById("moon").hidden = true;
     document.getElementById("sun").hidden = false;
+
+    setTimeout(unFreezeToggle, 1000);
 }
 
 var blacklist = [];
@@ -33,14 +38,10 @@ function docSearch(f, t) {
  * @type void
  */
 function replaceClassWith(e, f, t) {
-    console.log("Executing for");
-    console.log(e);
-    //blacklist = {};
     if (getBlacklistOf(e) != null) {
         var d = false;
         getBlacklistOf(e).forEach(a => {
             if (a == f) {
-                console.log("Skipping " + f + " on " + e + " as it has been blacklisted.");
                 d = true;
                 return;
             }
@@ -64,6 +65,9 @@ function getBlacklistOf(element) {
 }
 
 function lightMode() {
+    document.getElementById("moon").disabled = true;
+    document.getElementById("sun").disabled = true;
+
     if (currentTheme != "light") blacklist = [];
     currentTheme = "light";
     docSearch("bg-dark", "bg-light");
@@ -80,6 +84,13 @@ function lightMode() {
 
     document.getElementById("moon").hidden = false;
     document.getElementById("sun").hidden = true;
+
+    setTimeout(unFreezeToggle, 1000);
+}
+
+function unFreezeToggle() {
+    document.getElementById("moon").disabled = false;
+    document.getElementById("sun").disabled = false;
 }
 
 function getSystemDefaultTheme() {

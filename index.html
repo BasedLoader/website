@@ -52,6 +52,23 @@
             </nav>
         </header>
 
+        <div class="modal fade" id="news" tabindex="-1" aria-labelledby="newsTitle" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newsTitle"><!-- Title inserted at runtime --></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="newsBody"><!-- Content inserted at runtime --></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">What the modding community deserves.</h1>
@@ -60,25 +77,9 @@
             </div>
         </div>
 
-        <div class="row align-items-md-stretch">
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3">
-                    <h2>Our work merging Forge & Fabric</h2>
-                    <p>We have been working hard to remove the barrier between the two main competing mod loaders.
-                        Currently, support is very limited for some fabric mods due to mixin issues and Forge's mod
-                        class loading being broken, but is a big step in the direction towards one mod loader for all
-                        mods.</p>
-                    <button class="btn btn-outline-dark" type="button">Read More</button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3">
-                    <h2>Plans to extend the api</h2>
-                    <p>We plan to have an api with fabrics modern style combined with some upcoming features such as
-                        extended interface injection and to meet or exceed the scope of forges API.</p>
-                    <button class="btn btn-outline-dark" type="button">Read More</button>
-                </div>
-            </div>
+        <h5>Recent Updates</h5>
+        <div class="row align-items-md-stretch" id="updates">
+            Failed to load updates, if you are running this page off your computer and not GitHub Pages, disable CORS.
         </div>
 
         <footer class="pt-3 mt-4 text-muted border-top">
@@ -86,5 +87,6 @@
         </footer>
     </div>
 </main>
+<script src="index.js"></script>
 </body>
 </html>
