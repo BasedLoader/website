@@ -25,7 +25,7 @@ setTimeout(refreshPreview, 10);
 function refreshPreview() {
     var setBackToDark = false;
     if (currentTheme == "dark") {
-        lightMode();
+        lightMode(false);
         setBackToDark = true;
     }
     const title = uTitle.value;
@@ -41,7 +41,7 @@ function refreshPreview() {
     if (currentTheme == "dark") btn = btn.replaceAll("btn-outline-dark", "btn-outline-secondary");
     full+= btn;
     uPrv.innerHTML = full;
-    if (setBackToDark) darkMode();
+    if (setBackToDark) darkMode(false);
     if (lastT == uTitle.value && lastB == uTBox.value) {
         setTimeout(refreshPreview, 1000);
         return;

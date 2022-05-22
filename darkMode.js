@@ -1,8 +1,10 @@
 var currentTheme = "light";
 
-function darkMode() {
-    document.getElementById("moon").disabled = true;
-    document.getElementById("sun").disabled = true;
+function darkMode(fre) {
+    if (fre == null) {
+        document.getElementById("moon").disabled = true;
+        document.getElementById("sun").disabled = true;
+    }
 
     if (currentTheme != "dark") blacklist = [];
     currentTheme = "dark";
@@ -64,9 +66,11 @@ function getBlacklistOf(element) {
     return d;
 }
 
-function lightMode() {
-    document.getElementById("moon").disabled = true;
-    document.getElementById("sun").disabled = true;
+function lightMode(fre) {
+    if (fre == null) {
+        document.getElementById("moon").disabled = true;
+        document.getElementById("sun").disabled = true;
+    }
 
     if (currentTheme != "light") blacklist = [];
     currentTheme = "light";
